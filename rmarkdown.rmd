@@ -1,0 +1,47 @@
+---
+title: "Example of Cross-Referencing in RMarkdown"
+author: "Jason Cory Brunson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This document illustrates figure and table cross-references that work when converting an RMarkdown document to PDF via LaTeX.
+
+## Table {-}
+
+See Table \ref{tab:table-name}.
+
+```{r}
+mtcars |> 
+  head() |> 
+  knitr::kable(
+    caption = paste0(
+      "\\label{tab:table-name}",
+      "Table caption."
+    )
+  )
+```
+
+## Equation {-}
+
+See Equation \ref{eq:equation-name}.
+
+\begin{equation}
+E \sim P \label{eq:equation-name}
+\end{equation}
+
+## Figure {-}
+
+See Figure \ref{fig:figure-name}.
+
+```{r}
+#| fig.cap =
+#| "\\label{fig:figure-name}
+#|  Figure caption.
+#| "
+plot(x = mtcars$hp, y = mtcars$mpg)
+```
