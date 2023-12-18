@@ -1,0 +1,15 @@
+# Mac
+.DS_Store
+
+# R Project
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# rendered outputs
+*.html
+*.docx
+*.log
+*.tex
+*.pdf
