@@ -14,7 +14,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-This document illustrates figure and table cross-references that work when converting an RMarkdown document to Word and to PDF via LaTeX.
+This document illustrates figure and table cross-references that work when converting an RMarkdown document to HTML, to Word, and to PDF via LaTeX using Bookdown.
 
 ## Table {-}
 
@@ -50,4 +50,3 @@ See Figure \@ref(fig:figure-name).
 #| "
 plot(x = mtcars$hp, y = mtcars$mpg)
 ```
-
