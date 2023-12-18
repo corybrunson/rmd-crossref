@@ -1,0 +1,53 @@
+---
+title: "Example of Cross-Referencing with Bookdown"
+author: "Jason Cory Brunson"
+date: "`r Sys.Date()`"
+# `*_document2` from {bookdown} package
+output:
+  bookdown::html_document2: default
+  # bookdown::word_document2: default
+  # bookdown::pdf_document2:
+    # keep_tex: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This document illustrates figure and table cross-references that work when converting an RMarkdown document to Word and to PDF via LaTeX.
+
+## Table {-}
+
+See Table \@ref(tab:table-name).
+
+```{r table-name}
+mtcars |> 
+  head() |> 
+  knitr::kable(
+    caption = paste0(
+      "\\label{tab:table-name}",
+      "Table caption."
+    )
+  )
+```
+
+## Equation {-}
+
+See \@ref(eq:equation-name).
+
+\begin{equation}
+E \sim P (\#eq:equation-name)
+\end{equation}
+
+## Figure {-}
+
+See Figure \@ref(fig:figure-name).
+
+```{r figure-name}
+#| fig.cap =
+#| "\\label{fig:figure-name}
+#|  Figure caption.
+#| "
+plot(x = mtcars$hp, y = mtcars$mpg)
+```
+
